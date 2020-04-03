@@ -1,10 +1,19 @@
 package com.bridgelabz.moodanalyser;
 
 public class MoodAnalyser {
-    public String getMood(String massage) {
-        if (massage.contains("sad"))
+    String message;
+    // Default cinstructor
+    public MoodAnalyser() {
+
+    }
+    //parameterized Constructor
+    public MoodAnalyser(String message) {
+        this.message = message;
+    }
+    public String getMood() {
+        if (message.contains("sad"))
             return "SAD";
-        if (massage.contains("happy"))
+        if (message.contains("happy"))
             return "HAPPY";
         return "Invalid Mood";
     }
