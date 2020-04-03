@@ -1,5 +1,7 @@
 package com.bridgelabz.moodanalyser;
 
+import java.util.Objects;
+
 public class MoodAnalyser {
     String message;
     // Default cinstructor
@@ -30,6 +32,12 @@ public class MoodAnalyser {
                     MoodAnalysisException.ExceptionType.NULL_EXCEPTION);
         }
     }
+    public boolean equals (Object object1){
+        if (this == object1) return true;
+        if (object1 == null || getClass() != object1.getClass()) return false;
+        MoodAnalyser object2 = (MoodAnalyser) object1;
+        return Objects.equals(message, object2.message);
 
+    }
 }
 
