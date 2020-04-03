@@ -18,7 +18,7 @@ public class MoodAnalyserTest {
 
     @Test
     public void givenAnyOtherMessage_shouldReturnInvalidMood() {
-        MoodAnalyser moodAnalyser = new MoodAnalyser("");
-        Assert.assertEquals("Invalid Mood",moodAnalyser.getMood());
+        MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+        Assert.assertEquals("HAPPY",moodAnalyser.getMood());
     }
 }
