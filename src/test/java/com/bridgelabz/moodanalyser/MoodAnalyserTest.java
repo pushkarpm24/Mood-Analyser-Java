@@ -27,6 +27,8 @@ public class MoodAnalyserTest {
         catch (MoodAnalysisException e) {
             Assert.assertEquals(e.exceptionTypeObject,MoodAnalysisException.ExceptionType.EMPTY_EXCEPTION);
         }
+
+
     }
 
     @Test
@@ -50,5 +52,14 @@ public class MoodAnalyserTest {
         Assert.assertTrue("true",result);
     }
 
-
+    // Test for checking improper class name
+    @Test
+    public void givenClassName_whenImproper_shouldThrowException() {
+        try {
+            MoodAnalyserFactory.getConstructor("Analyser");
+        }
+        catch (MoodAnalysisException e){
+            Assert.assertEquals(e.exceptionTypeObject,MoodAnalysisException.ExceptionType.CLASS_NOT_FOUND);
+        }
+    }
 }
