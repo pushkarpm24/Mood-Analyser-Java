@@ -62,4 +62,15 @@ public class MoodAnalyserTest {
             Assert.assertEquals(e.exceptionTypeObject,MoodAnalysisException.ExceptionType.CLASS_NOT_FOUND);
         }
     }
-}
+
+    // Test for checking not proper constructor
+    @Test
+    public void givenConstructor_whenImproper_shouldThrowExeption() {
+        try {
+            MoodAnalyserFactory.getConstructor("MoodAnalyser", Integer.class);
+        } catch (MoodAnalysisException e) {
+            Assert.assertEquals(MoodAnalysisException.ExceptionType.METHOD_NOT_FOUND, e.exceptionTypeObject);
+        }
+    }
+    }
+
