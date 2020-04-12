@@ -72,5 +72,19 @@ public class MoodAnalyserTest {
             Assert.assertEquals(MoodAnalysisException.ExceptionType.METHOD_NOT_FOUND, e.exceptionTypeObject);
         }
     }
+
+    // Test for return HAPPY message by invoke method using reflection
+    @Test
+    public void usingReflection_givenMessage_WhenProper_shouldReturnHappy() throws MoodAnalysisException{
+        try
+        {
+            Constructor constructor = MoodAnalyserFactory.getConstructor("MoodAnalyser",Integer.class);
+            Object moodObject1 = MoodAnalyserFactory.createMoodAnalyserObject(constructor,"I'm in Happy mood");
+            Object moodObject2 = MoodAnalyserFactory.invokeMethod(moodObject1, "analyseMood");
+            Assert.assertEquals("HAPPY",moodObject2);
+        } catch (MoodAnalysisException e) {
+            e.printStackTrace();
+        }
+    }
     }
 
