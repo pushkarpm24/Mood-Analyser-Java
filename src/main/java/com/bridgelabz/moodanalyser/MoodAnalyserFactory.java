@@ -39,7 +39,7 @@ public class MoodAnalyserFactory {
             return result;
         }
         catch (NoSuchMethodException e) {
-            e.printStackTrace();
+            throw new MoodAnalysisException("method not found",MoodAnalysisException.ExceptionType.METHOD_NOT_FOUND);
         }
         catch (IllegalAccessException e) {
             e.printStackTrace();

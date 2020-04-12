@@ -86,5 +86,18 @@ public class MoodAnalyserTest {
             e.printStackTrace();
         }
     }
+    // Test for throw exception if method name is wrong
+    @Test
+    public void usingReflection_givenMessage_whenImproper_shouldThrowException() {
+        try {
+            Constructor constructor = MoodAnalyserFactory.getConstructor("MoodAnalyser",String.class);
+            Object moodAnalyserObject1 = MoodAnalyserFactory.createMoodAnalyserObject(constructor,"I am in Happy mood");
+            Object moodAnalyserObject2 = MoodAnalyserFactory.invokeMethod(moodAnalyserObject1, "AnalyseMood");
+            Assert.assertEquals("HAPPPY",moodAnalyserObject2);
+        }
+        catch (MoodAnalysisException e) {
+            Assert.assertEquals(e.exceptionTypeObject , MoodAnalysisException.ExceptionType.METHOD_NOT_FOUND);
+        }
+    }
     }
 
