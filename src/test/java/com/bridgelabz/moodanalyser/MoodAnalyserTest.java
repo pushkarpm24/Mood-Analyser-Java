@@ -54,9 +54,9 @@ public class MoodAnalyserTest {
 
     // Test for checking improper class name
     @Test
-    public void givenClassName_whenImproper_shouldThrowException() {
+    public void  givenClassWithParameter_whenImproper_shouldThrowException() {
         try {
-            MoodAnalyserFactory.getConstructor("Analyser");
+            MoodAnalyserFactory.getConstructor("Analyser",String.class);
         }
         catch (MoodAnalysisException e){
             Assert.assertEquals(e.exceptionTypeObject,MoodAnalysisException.ExceptionType.CLASS_NOT_FOUND);
