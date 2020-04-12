@@ -63,11 +63,11 @@ public class MoodAnalyserTest {
         }
     }
 
-    // Test for checking not proper constructor
+    // Test for checking not proper constructor with parameter
     @Test
-    public void givenConstructor_whenImproper_shouldThrowExeption() {
+    public void  givenConstructorWithParameter_whenImproper_shouldThrowException() {
         try {
-            MoodAnalyserFactory.getConstructor("MoodAnalyser", Integer.class);
+            MoodAnalyserFactory.getConstructor("MoodAnalyser", String.class, Integer.class);
         } catch (MoodAnalysisException e) {
             Assert.assertEquals(MoodAnalysisException.ExceptionType.METHOD_NOT_FOUND, e.exceptionTypeObject);
         }
