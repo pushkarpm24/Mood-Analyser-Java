@@ -16,9 +16,10 @@ public class MoodAnalyserFactory {
         }
     }
 
-    public static MoodAnalyser createMoodAnalyserObject(Constructor constructor) {
+    public static MoodAnalyser createMoodAnalyserObject(Constructor constructor, Object... moodAnalyserObject)
+    {
         try {
-            return (MoodAnalyser) constructor.newInstance();
+            return (MoodAnalyser) constructor.newInstance(moodAnalyserObject);
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {

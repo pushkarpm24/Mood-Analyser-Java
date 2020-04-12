@@ -49,7 +49,7 @@ public class MoodAnalyserTest {
         Constructor constructor = MoodAnalyserFactory.getConstructor("MoodAnalyser");
         MoodAnalyser moodAnalyserObject2 = MoodAnalyserFactory.createMoodAnalyserObject(constructor);
         boolean result = moodAnalyser.equals(moodAnalyserObject2);
-        Assert.assertTrue("true",result);
+        Assert.assertTrue("true", result);
     }
 
     // Test for checking improper class name

@@ -10,7 +10,8 @@ public class MoodAnalyser {
     }
     //parameterized Constructor
     public MoodAnalyser(String message) {
-        this.message = message;
+
+            this.message = message;
     }
 
     public String getMood() throws MoodAnalysisException {
@@ -32,6 +33,9 @@ public class MoodAnalyser {
                     MoodAnalysisException.ExceptionType.NULL_EXCEPTION);
         }
     }
+
+    // Override equals method for checking object equality
+    @Override
     public boolean equals (Object object1){
         if (this == object1) return true;
         if (object1 == null || getClass() != object1.getClass()) return false;
