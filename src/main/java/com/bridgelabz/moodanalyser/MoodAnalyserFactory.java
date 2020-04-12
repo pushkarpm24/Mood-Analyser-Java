@@ -59,7 +59,7 @@ public class MoodAnalyserFactory {
             fieldObject.set(object,fieldValue);
         }
         catch (IllegalAccessException e) {
-            e.printStackTrace();
+            throw new MoodAnalysisException("null message",MoodAnalysisException.ExceptionType.ILLEGAL_ACCESS_EXCEPTION);
         }
         catch (NoSuchFieldException e) {
             throw new MoodAnalysisException("field not found",MoodAnalysisException.ExceptionType.FIELD_NOT_FOUND);

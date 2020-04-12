@@ -9,7 +9,8 @@ public class MoodAnalysisException extends Exception {
         NULL_EXCEPTION,
         CLASS_NOT_FOUND,
         METHOD_NOT_FOUND,
-        FIELD_NOT_FOUND
+        FIELD_NOT_FOUND,
+        ILLEGAL_ACCESS_EXCEPTION,
 
     }
     ExceptionType exceptionTypeObject;

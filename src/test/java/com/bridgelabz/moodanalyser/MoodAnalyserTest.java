@@ -129,5 +129,19 @@ public class MoodAnalyserTest {
         }
     }
 
+    // Test for set the Field Value to null and check exception
+    @Test
+    public void message_whenNull_shouldThrowException() throws MoodAnalysisException {
+        try {
+            Constructor constructor = MoodAnalyserFactory.getConstructor("MoodAnalyser");
+            MoodAnalyser moodAnalyserObject = MoodAnalyserFactory.createMoodAnalyserObject(constructor);
+            MoodAnalyserFactory.moodAnalyserFieldMethod(moodAnalyserObject,"message",null);
+            Object moodObject = MoodAnalyserFactory.invokeMethod(moodAnalyserObject, "analyseMood");
+        }
+        catch (MoodAnalysisException e) {
+            Assert.assertEquals(e.exceptionTypeObject,MoodAnalysisException.ExceptionType.METHOD_NOT_FOUND);
+        }
+    }
+
 }
 
