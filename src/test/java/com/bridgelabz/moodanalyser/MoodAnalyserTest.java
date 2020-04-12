@@ -114,5 +114,20 @@ public class MoodAnalyserTest {
             e.printStackTrace();
         }
     }
+
+    // Test for set the Value on improper Field, catch the exception and throw field not found error
+    @Test
+    public void field_whenImproper_shouldThrowException() throws MoodAnalysisException {
+        try {
+            Constructor constructor = MoodAnalyserFactory.getConstructor("MoodAnalyser");
+            MoodAnalyser moodAnalyserObject = MoodAnalyserFactory.createMoodAnalyserObject(constructor);
+            MoodAnalyserFactory.moodAnalyserFieldMethod(moodAnalyserObject,"Message","I'm Happy ");
+            Object moodObject = MoodAnalyserFactory.invokeMethod(moodAnalyserObject, "analyseMood");
+        }
+        catch (MoodAnalysisException e) {
+            Assert.assertEquals(e.exceptionTypeObject,MoodAnalysisException.ExceptionType.FIELD_NOT_FOUND);
+        }
     }
+
+}
 

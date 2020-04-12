@@ -51,7 +51,8 @@ public class MoodAnalyserFactory {
         return null;
     }
 
-    public static void moodAnalyserFieldMethod(Object object, String message, String fieldValue) {
+    public static void moodAnalyserFieldMethod(Object object, String message, String fieldValue) throws MoodAnalysisException
+    {
         try {
             Class<?> classObject = object.getClass();
             Field fieldObject = classObject.getDeclaredField(message);
@@ -61,7 +62,7 @@ public class MoodAnalyserFactory {
             e.printStackTrace();
         }
         catch (NoSuchFieldException e) {
-            e.printStackTrace();
+            throw new MoodAnalysisException("field not found",MoodAnalysisException.ExceptionType.FIELD_NOT_FOUND);
         }
     }
 }
